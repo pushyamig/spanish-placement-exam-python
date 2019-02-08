@@ -18,6 +18,9 @@ COPY start.sh /start.sh
 WORKDIR /spe/
 COPY . /spe/
 
+RUN chown -R root:root /spe
+RUN chmod g+rw /spe
+
 # Sets the local timezone of the docker image
 ENV TZ=America/Detroit
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
